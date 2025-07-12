@@ -1,0 +1,67 @@
+{
+    "name": "Creative Studio - Free Design Tools",
+    "short_name": "Creative Studio",
+    "description": "Professional design tools for image editing, PDF processing, and graphic design",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1a73e8",
+    "theme_color": "#1a73e8",
+    "orientation": "any",
+    "categories": ["productivity", "photo", "graphics"],
+    "lang": "en",
+    "dir": "ltr",
+    "icons": [
+        {
+            "src": "icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "screenshot-wide.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "screenshot-narrow.png",
+            "sizes": "720x1280", 
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Image Editor",
+            "short_name": "Edit Images",
+            "description": "Start editing images",
+            "url": "/?tool=image-editor",
+            "icons": [
+                {
+                    "src": "icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "PDF Tools",
+            "short_name": "PDF Tools",
+            "description": "Process PDF files",
+            "url": "/?tool=pdf-tools",
+            "icons": [
+                {
+                    "src": "icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ]
+}

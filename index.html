@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Studio - Free Photoshop Alternative & PDF Editor Online</title>
+    <meta name="description" content="Free online image editor, PDF tools, and design templates. Alternative to Photoshop with Canvas-based editing, filters, and creative tools for Indian users.">
+    <meta name="keywords" content="free photoshop alternative, online image editor, PDF converter, design templates, photo editor India, online graphic design">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Creative Studio - Free Online Design Tools">
+    <meta property="og:description" content="Professional image editing, PDF tools, and design templates - completely free!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://creativestudio.vercel.app">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Fabric.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+    <!-- PDF-lib -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1847202195322523" crossorigin="anonymous"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a73e8">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Header Ad Banner (728x90) -->
+    <div class="ad-container text-center py-2">
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-1847202195322523"
+             data-ad-slot="XXXXXXXXXX"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-palette me-2"></i>Creative Studio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tools">Tools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#templates">Templates</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-language"></i> Language
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="setLanguage('en')">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setLanguage('hi')">हिंदी</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white text-center py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 fw-bold mb-4" data-en="Professional Design Tools, Completely Free" data-hi="पेशेवर डिज़ाइन टूल्स, बिल्कुल मुफ्त">Professional Design Tools, Completely Free</h1>
+                    <p class="lead mb-4" data-en="Create stunning images, edit PDFs, and design graphics with our Adobe-inspired online tools. No downloads required!" data-hi="हमारे एडोब-प्रेरित ऑनलाइन टूल्स के साथ शानदार छवियां बनाएं, पीडीएफ संपादित करें, और ग्राफिक्स डिज़ाइन करें। कोई डाउनलोड की आवश्यकता नहीं!">Create stunning images, edit PDFs, and design graphics with our Adobe-inspired online tools. No downloads required!</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <button class="btn btn-light btn-lg px-4" onclick="showTool('image-editor')">
+                            <i class="fas fa-paint-brush me-2"></i><span data-en="Start Editing" data-hi="संपादन शुरू करें">Start Editing</span>
+                        </button>
+                        <button class="btn btn-outline-light btn-lg px-4" onclick="showTool('pdf-tools')">
+                            <i class="fas fa-file-pdf me-2"></i><span data-en="PDF Tools" data-hi="पीडीएफ टूल्स">PDF Tools</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Sidebar with Ads -->
+            <div class="col-lg-3 order-lg-2">
+                <div class="sticky-top" style="top: 100px;">
+                    <!-- Sidebar Ad (300x250) -->
+                    <div class="ad-container mb-4">
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-1847202195322523"
+                             data-ad-slot="XXXXXXXXXX"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                    
+                    <!-- Quick Stats -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">Quick Stats</h6>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Images Edited:</span>
+                                <span id="images-count">0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>PDFs Processed:</span>
+                                <span id="pdfs-count">0</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Templates Used:</span>
+                                <span id="templates-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Tools Area -->
+            <div class="col-lg-9 order-lg-1">
+                <!-- Tools Grid -->
+                <section id="tools" class="tools-section">
+                    <h2 class="text-center mb-5" data-en="Choose Your Tool" data-hi="अपना टूल चुनें">Choose Your Tool</h2>
+                    <div class="row g-4">
+                        <!-- Image Editor -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="tool-card" onclick="showTool('image-editor')">
+                                <div class="card h-100 tool-card-inner">
+                                    <div class="card-body text-center">
+                                        <div class="tool-icon mb-3">
+                                            <i class="fas fa-paint-brush"></i>
+                                        </div>
+                                        <h5 class="card-title" data-en="Image Editor" data-hi="छवि संपादक">Image Editor</h5>
+                                        <p class="card-text" data-en="Professional photo editing with filters, crop, resize, and drawing tools" data-hi="फिल्टर, क्रॉप, रीसाइज़ और ड्रॉइंग टूल्स के साथ पेशेवर फोटो संपादन">Professional photo editing with filters, crop, resize, and drawing tools</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PDF Tools -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="tool-card" onclick="showTool('pdf-tools')">
+                                <div class="card h-100 tool-card-inner">
+                                    <div class="card-body text-center">
+                                        <div class="tool-icon mb-3">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </div>
+                                        <h5 class="card-title" data-en="PDF Tools" data-hi="पीडीएफ टूल्स">PDF Tools</h5>
+                                        <p class="card-text" data-en="Convert, merge, split PDFs and extract pages easily" data-hi="आसानी से पीडीएफ को कन्वर्ट, मर्ज, स्प्लिट करें और पेज निकालें">Convert, merge, split PDFs and extract pages easily</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- File Converter -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="tool-card" onclick="showTool('file-converter')">
+                                <div class="card h-100 tool-card-inner">
+                                    <div class="card-body text-center">
+                                        <div class="tool-icon mb-3">
+                                            <i class="fas fa-exchange-alt"></i>
+                                        </div>
+                                        <h5 class="card-title" data-en="File Converter" data-hi="फाइल कन्वर्टर">File Converter</h5>
+                                        <p class="card-text" data-en="Convert between image formats and documents instantly" data-hi="छवि प्रारूपों और दस्तावेजों के बीच तुरंत कन्वर्ट करें">Convert between image formats and documents instantly</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Design Templates -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="tool-card" onclick="showTool('templates')">
+                                <div class="card h-100 tool-card-inner">
+                                    <div class="card-body text-center">
+                                        <div class="tool-icon mb-3">
+                                            <i class="fas fa-th-large"></i>
+                                        </div>
+                                        <h5 class="card-title" data-en="Design Templates" data-hi="डिज़ाइन टेम्प्लेट">Design Templates</h5>
+                                        <p class="card-text" data-en="Ready-made templates for social media, business cards, and posters" data-hi="सोशल मीडिया, बिजनेस कार्ड और पोस्टर के लिए तैयार टेम्प्लेट">Ready-made templates for social media, business cards, and posters</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Logo Maker -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="tool-card" onclick="showTool('logo-maker')">
+                                <div class="card h-100 tool-card-inner">
+                                    <div class="card-body text-center">
+                                        <div class="tool-icon mb-3">
+                                            <i class="fas fa-crown"></i>
+                                        </div>
+                                        <h5 class="card-title" data-en="Logo Maker" data-hi="लोगो मेकर">Logo Maker</h5>
+                                        <p class="card-text" data-en="Create professional logos with shapes, text, and icons" data-hi="आकार, टेक्स्ट और आइकन के साथ पेशेवर लोगो बनाएं">Create professional logos with shapes, text, and icons</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Collage Maker -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="tool-card" onclick="showTool('collage-maker')">
+                                <div class="card h-100 tool-card-inner">
+                                    <div class="card-body text-center">
+                                        <div class="tool-icon mb-3">
+                                            <i class="fas fa-images"></i>
+                                        </div>
+                                        <h5 class="card-title" data-en="Collage Maker" data-hi="कोलाज मेकर">Collage Maker</h5>
+                                        <p class="card-text" data-en="Combine multiple images into beautiful collages" data-hi="कई छवियों को सुंदर कोलाज में मिलाएं">Combine multiple images into beautiful collages</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Between Tools Ad (Responsive) -->
+                <div class="ad-container text-center my-5">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-1847202195322523"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <!-- Tool Interfaces (Initially Hidden) -->
+                <!-- Image Editor Interface -->
+                <div id="image-editor-interface" class="tool-interface" style="display: none;">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-paint-brush me-2"></i><span data-en="Image Editor" data-hi="छवि संपादक">Image Editor</span></h3>
+                        <button class="btn btn-outline-secondary" onclick="hideTool()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="tools-panel">
+                                <h6 data-en="Upload Image" data-hi="छवि अपलोड करें">Upload Image</h6>
+                                <input type="file" id="image-upload" accept="image/*" class="form-control mb-3">
+                                
+                                <h6 data-en="Tools" data-hi="टूल्स">Tools</h6>
+                                <div class="btn-group-vertical w-100 mb-3">
+                                    <button class="btn btn-outline-primary" onclick="selectTool('brush')">
+                                        <i class="fas fa-paint-brush me-2"></i><span data-en="Brush" data-hi="ब्रश">Brush</span>
+                                    </button>
+                                    <button class="btn btn-outline-primary" onclick="selectTool('eraser')">
+                                        <i class="fas fa-eraser me-2"></i><span data-en="Eraser" data-hi="इरेज़र">Eraser</span>
+                                    </button>
+                                    <button class="btn btn-outline-primary" onclick="selectTool('text')">
+                                        <i class="fas fa-font me-2"></i><span data-en="Text" data-hi="टेक्स्ट">Text</span>
+                                    </button>
+                                    <button class="btn btn-outline-primary" onclick="selectTool('crop')">
+                                        <i class="fas fa-crop me-2"></i><span data-en="Crop" data-hi="क्रॉप">Crop</span>
+                                    </button>
+                                </div>
+                                
+                                <h6 data-en="Filters" data-hi="फिल्टर">Filters</h6>
+                                <div class="filter-controls">
+                                    <label>Brightness</label>
+                                    <input type="range" class="form-range" min="0" max="200" value="100" id="brightness-slider">
+                                    
+                                    <label>Contrast</label>
+                                    <input type="range" class="form-range" min="0" max="200" value="100" id="contrast-slider">
+                                    
+                                    <label>Saturation</label>
+                                    <input type="range" class="form-range" min="0" max="200" value="100" id="saturation-slider">
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <button class="btn btn-success w-100" onclick="downloadImage()">
+                                        <i class="fas fa-download me-2"></i><span data-en="Download" data-hi="डाउनलोड">Download</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="canvas-container">
+                                <canvas id="image-canvas" width="800" height="600"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF Tools Interface -->
+                <div id="pdf-tools-interface" class="tool-interface" style="display: none;">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-file-pdf me-2"></i><span data-en="PDF Tools" data-hi="पीडीएफ टूल्स">PDF Tools</span></h3>
+                        <button class="btn btn-outline-secondary" onclick="hideTool()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-image me-2"></i><span data-en="PDF to Images" data-hi="पीडीएफ से छवियां">PDF to Images</span></h5>
+                                    <input type="file" id="pdf-to-image-upload" accept=".pdf" class="form-control mb-3">
+                                    <button class="btn btn-primary" onclick="convertPdfToImages()">Convert</button>
+                                    <div id="pdf-images-result"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-file-pdf me-2"></i><span data-en="Images to PDF" data-hi="छवियों से पीडीएफ">Images to PDF</span></h5>
+                                    <input type="file" id="images-to-pdf-upload" accept="image/*" multiple class="form-control mb-3">
+                                    <button class="btn btn-primary" onclick="convertImagesToPdf()">Convert</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-object-group me-2"></i><span data-en="Merge PDFs" data-hi="पीडीएफ मर्ज करें">Merge PDFs</span></h5>
+                                    <input type="file" id="merge-pdfs-upload" accept=".pdf" multiple class="form-control mb-3">
+                                    <button class="btn btn-primary" onclick="mergePdfs()">Merge</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-scissors me-2"></i><span data-en="Extract Pages" data-hi="पेज निकालें">Extract Pages</span></h5>
+                                    <input type="file" id="extract-pages-upload" accept=".pdf" class="form-control mb-3">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input type="number" placeholder="From page" id="extract-from" class="form-control">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="number" placeholder="To page" id="extract-to" class="form-control">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary mt-2" onclick="extractPages()">Extract</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Converter Interface -->
+                <div id="file-converter-interface" class="tool-interface" style="display: none;">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-exchange-alt me-2"></i><span data-en="File Converter" data-hi="फाइल कन्वर्टर">File Converter</span></h3>
+                        <button class="btn btn-outline-secondary" onclick="hideTool()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Image Format Converter</h5>
+                                    <input type="file" id="image-converter-upload" accept="image/*" class="form-control mb-3">
+                                    <select id="target-format" class="form-select mb-3">
+                                        <option value="jpeg">JPEG</option>
+                                        <option value="png">PNG</option>
+                                        <option value="webp">WebP</option>
+                                    </select>
+                                    <button class="btn btn-primary" onclick="convertImageFormat()">Convert</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Document Converter</h5>
+                                    <input type="file" id="doc-converter-upload" accept=".docx,.doc,.txt" class="form-control mb-3">
+                                    <button class="btn btn-primary" onclick="convertDocToPdf()">Convert to PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Templates Interface -->
+                <div id="templates-interface" class="tool-interface" style="display: none;">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-th-large me-2"></i><span data-en="Design Templates" data-hi="डिज़ाइन टेम्प्लेट">Design Templates</span></h3>
+                        <button class="btn btn-outline-secondary" onclick="hideTool()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="template-categories mb-4">
+                        <button class="btn btn-outline-primary me-2" onclick="showTemplates('social')">Social Media</button>
+                        <button class="btn btn-outline-primary me-2" onclick="showTemplates('business')">Business Cards</button>
+                        <button class="btn btn-outline-primary me-2" onclick="showTemplates('poster')">Posters</button>
+                        <button class="btn btn-outline-primary" onclick="showTemplates('banner')">Banners</button>
+                    </div>
+                    
+                    <div id="templates-grid" class="row g-3"></div>
+                </div>
+
+                <!-- Logo Maker Interface -->
+                <div id="logo-maker-interface" class="tool-interface" style="display: none;">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-crown me-2"></i><span data-en="Logo Maker" data-hi="लोगो मेकर">Logo Maker</span></h3>
+                        <button class="btn btn-outline-secondary" onclick="hideTool()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="logo-tools">
+                                <h6>Add Elements</h6>
+                                <div class="btn-group-vertical w-100 mb-3">
+                                    <button class="btn btn-outline-primary" onclick="addShape('circle')">Circle</button>
+                                    <button class="btn btn-outline-primary" onclick="addShape('rectangle')">Rectangle</button>
+                                    <button class="btn btn-outline-primary" onclick="addShape('triangle')">Triangle</button>
+                                    <button class="btn btn-outline-primary" onclick="addLogoText()">Add Text</button>
+                                </div>
+                                
+                                <h6>Colors</h6>
+                                <div class="color-palette">
+                                    <input type="color" id="logo-color" class="form-control form-control-color">
+                                </div>
+                                
+                                <button class="btn btn-success w-100 mt-3" onclick="downloadLogo()">Download Logo</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <canvas id="logo-canvas" width="400" height="400" style="border: 1px solid #ddd;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collage Maker Interface -->
+                <div id="collage-maker-interface" class="tool-interface" style="display: none;">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-images me-2"></i><span data-en="Collage Maker" data-hi="कोलाज मेकर">Collage Maker</span></h3>
+                        <button class="btn btn-outline-secondary" onclick="hideTool()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="collage-tools">
+                                <h6>Upload Images</h6>
+                                <input type="file" id="collage-images" accept="image/*" multiple class="form-control mb-3">
+                                
+                                <h6>Layout</h6>
+                                <select id="collage-layout" class="form-select mb-3">
+                                    <option value="2x2">2x2 Grid</option>
+                                    <option value="3x3">3x3 Grid</option>
+                                    <option value="freeform">Freeform</option>
+                                </select>
+                                
+                                <button class="btn btn-primary w-100 mb-2" onclick="generateCollage()">Generate Collage</button>
+                                <button class="btn btn-success w-100" onclick="downloadCollage()">Download</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <canvas id="collage-canvas" width="800" height="600" style="border: 1px solid #ddd;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with Ads -->
+    <footer class="bg-dark text-white mt-5 py-4">
+        <!-- Footer Ad -->
+        <div class="ad-container text-center mb-4">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1847202195322523"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Creative Studio</h5>
+                    <p class="mb-1">Professional design tools for everyone</p>
+                    <p class="small">Made with ❤️ for the Indian creative community</p>
+                </div>
+                <div class="col-md-6">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white-50">Terms of Service</a></li>
+                        <li><a href="#" class="text-white-50">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Creative Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
